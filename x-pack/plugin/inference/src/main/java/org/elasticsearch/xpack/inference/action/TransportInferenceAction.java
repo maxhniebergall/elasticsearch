@@ -12,6 +12,7 @@ import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.support.ActionFilters;
 import org.elasticsearch.inference.InferenceService;
 import org.elasticsearch.inference.InferenceServiceRegistry;
+import org.elasticsearch.inference.InferenceServiceResults;
 import org.elasticsearch.inference.Model;
 import org.elasticsearch.inference.UnparsedModel;
 import org.elasticsearch.injection.guice.Inject;
@@ -59,7 +60,7 @@ public class TransportInferenceAction extends BaseTransportInferenceAction<Infer
         Model model,
         InferenceAction.Request request,
         InferenceService service,
-        ActionListener<InferenceAction.Response> listener
+        ActionListener<InferenceServiceResults> listener
     ) {
         service.infer(
             model,
